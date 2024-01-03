@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Resume</title>
-    <style>
-        h1 {
-        font-size: 40px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(50, 50, 50);
-        text-align: center;
-        }
-        #banner {
-        width: 100%;
-        height: 720px;
-        object-fit: cover;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+    #banner {
+    height: 360px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    }
 
-        h2 {
-        font-family: Roboto;
-        font-size: 32px;
-        color: rgb(100, 100, 100);
-        text-align: center;
-        font-weight: normal;
-        }
-
-        .bodytext {
-        font-family: Roboto;
-        color: rgb(80, 80, 80);
-        }
-
-        #container {
-        max-width: 720px;
-        margin: 0 auto;
-
-        }
-    </style>
+</style>
 </head>
 <body>
-    <div id="container">
-     <h1>Карьерный путь</h1>
-    <img id="banner" src="static/banner.jpg">
-    <h2>Обо мне</h2>
-    <p class="bodytext">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, accusamus
-        aliquam animi consequatur consequuntur dignissimos dolores enim eum excepturi
-        exercitationem fugiat officiis quasi quis rem voluptate? A sequi tempora
-        tenetur!</p>
-    <h2>Открытые вакансии</h2>
-    <p class="bodytext">TODO сделать</p>
-        <div style="text-align: center;">
-    <button>Связаться</button>
-            <p>Copyright 2022, Ivanov</p>
+    {% include 'nav.html' %}
+    <img class="img-fluid" src="static/banner.jpg">
+    <div class="container">
+     <h1 class="text-center mt-4 mb-2">Блог карьериста</h1>
+        <div class="row" style="margin-bottom:16px">
+            <div class="col-md-6">
+    <p class="lead">
+        Меня зовут Иванов Андрей, и я являюсь страстным студентом Python-разработчиком.
+        С самого начала моей карьеры в области программирования, я понял, что это именно то, чему
+        я хочу посвятить свою жизнь. Python был моим первым языком программирования, и с тех пор
+        я совершенствую свои навыки в этом направлении.
+        Обучение на Python разработчика стало для меня путем к саморазвитию и
+        новым возможностям. Я использую Python для создания веб-приложений, машинного
+        обучения, анализа данных и многого другого. Я стремлюсь стать экспертом в этой
+        области и быть востребованным специалистом на рынке труда.
+        Моя цель - стать успешным Python-разработчиком и продолжать расширять свои знания и
+        навыки в этой сфере. Я уверен, что мои усилия и страсть к программированию приведут меня к успеху.!</p>
+            </div>
+            <div class="d-none d-md-block col-md-6">
+            <img src="/static/work.jpg" style="height: 480px; border-radius: 4px;">
+                </div>
+        </div>
+    <h2 class="text-center mt-2 mb-4">Рассматриваемые вакансии</h2>
+    <p>
+        <div>
+        {% for job in jobs %}
+        {% include 'jobitem.html' %}
+        {%endfor%}
+    </div>
+    </p>
+        <div class="text-center">
+    <button class="btn btn-primary btn-lg">Связаться</button>
         </div>
     </div>
+    {% include 'footer.html' %}
 </body>
 </html>
